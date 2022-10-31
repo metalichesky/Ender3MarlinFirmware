@@ -2796,6 +2796,17 @@
    */
   #define INTERPOLATE      true
 
+/**
+ * Current for stepper motors with TMC2209 driver should be caclulated this way:
+ * I(rms) = (325mV / (R(sense) + 20mOhm)) * (1 / (sqrt(2)) * (V(ref) / 2.5V)
+ * 
+ * R(sense) is resistance of tuning resistor
+ * V(ref) is voltage on tuning resistor (voltage drop)
+ * sqrt(2) ~ 1.4 is peek current value, so we should divide on 1.4 to get average current value
+ * For TMC2209 V(ref)=1.2V is recommended, so I(rms) is ~900mA
+ * Set less mA value for reliability and less motor temperature (for higher print accuracy)
+ */
+
   #if AXIS_IS_TMC(X)
     #define X_CURRENT       800        // (mA) RMS current. Multiply by 1.414 for peak current.
     #define X_CURRENT_HOME  (X_CURRENT/2)  // (mA) RMS current for sensorless homing

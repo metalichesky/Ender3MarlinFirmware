@@ -1159,7 +1159,28 @@
  * Default Axis Steps Per Unit (steps/mm)
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
- * Для x и y считается по формуле
+ * For X and Y calculated with the formula:
+ * ((number of steps per revolution) * (number of micro steps per step)) / ((pitch of the drive belt) * (number of teeth on the pulley))
+ * Number of steps per revolution = 200
+ * Number of microsteps = 16
+ * Drive belt pitch = 2.0
+ * Number of teeth on the pulley = 20
+ *
+ * For z it is calculated by the formula
+ * ((number of steps per revolution) * (number of micro steps per step)) / screw pitch (studs)
+ * Number of steps per revolution = 200
+ * Number of microsteps = 4 ?
+ * Pitch = 2
+ *
+ * For e is calculated by the formula
+ * ((number of steps per revolution) * (number of micro steps per step) * (gear ratio)) / ((gear diameter) * Pi)
+ * Number of steps per revolution = 200
+ * Feed gear diameter = 8?
+ * Number of microsteps = 16
+ * Gear ratio = 3 ?
+ *
+ * New values ​​{ 80, 80, 400, 389.1 }
+ * 
  * ((кол-во шагов на оборот) * (кол-во микрошагов на шаг)) / ((шаг приводного ремня) * (кол-во зубьев на шкиве))
  * Кол-во шагов на оборот = 200
  * Кол-во микрошагов = 16
@@ -1179,7 +1200,6 @@
  * Кол-во микрошагов = 16
  * Передаточное отношение редуктора = 3 ?
  *
- * Старые значения { 80, 80, 400, 141 }
  * Новые значения { 80, 80, 400, 389.1 }
  */
 #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 389.1 }
@@ -2240,6 +2260,12 @@
 #define PREHEAT_3_TEMP_BED 110
 #define PREHEAT_3_TEMP_CHAMBER 35
 #define PREHEAT_3_FAN_SPEED 0 // Value from 0 to 255
+
+#define PREHEAT_4_LABEL "Nylon"
+#define PREHEAT_4_TEMP_HOTEND 260
+#define PREHEAT_4_TEMP_BED 100
+#define PREHEAT_4_TEMP_CHAMBER 35
+#define PREHEAT_4_FAN_SPEED 0 // Value from 0 to 255
 
 // @section motion
 
