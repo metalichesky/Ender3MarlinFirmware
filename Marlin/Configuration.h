@@ -538,7 +538,7 @@
 #define TEMP_SENSOR_5 0
 #define TEMP_SENSOR_6 0
 #define TEMP_SENSOR_7 0
-#define TEMP_SENSOR_BED 1
+#define TEMP_SENSOR_BED 0
 #define TEMP_SENSOR_PROBE 0
 #define TEMP_SENSOR_CHAMBER 0
 #define TEMP_SENSOR_COOLER 0
@@ -1202,7 +1202,7 @@
  *
  * Новые значения { 80, 80, 400, 389.1 }
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 389.1 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 320, 320, 1600, 389.1 }
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
