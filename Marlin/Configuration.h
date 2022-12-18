@@ -814,7 +814,7 @@
  * *** IT IS HIGHLY RECOMMENDED TO LEAVE THIS OPTION ENABLED! ***
  */
 #define PREVENT_COLD_EXTRUSION
-#define EXTRUDE_MINTEMP 170
+#define EXTRUDE_MINTEMP 140
 
 /**
  * Prevent a single extrusion longer than EXTRUDE_MAXLENGTH.
@@ -1181,28 +1181,11 @@
  *
  * New values ​​{ 80, 80, 400, 389.1 }
  * 
- * ((кол-во шагов на оборот) * (кол-во микрошагов на шаг)) / ((шаг приводного ремня) * (кол-во зубьев на шкиве))
- * Кол-во шагов на оборот = 200
- * Кол-во микрошагов = 16
- * Шаг приводного ремня = 2.0
- * Кол-во зубьев на шкиве = 20
- *
- * Для z считается по формуле
- * ((кол-во шагов на оборот) * (кол-во микрошагов на шаг)) / шаг винта (шпильки)
- * Кол-во шагов на оборот = 200
- * Кол-во микрошагов = 4 ?
- * Шаг винта = 2
- *
- * Для e считается по формуле
- * ((кол-во шагов на оборот) * (кол-во микрошагов на шаг) * (передаточное отношение)) / ((диаметр шестерни) * Pi)
- * Кол-во шагов на оборот = 200
- * Диаметр подающей шестерни = 8 ?
- * Кол-во микрошагов = 16
- * Передаточное отношение редуктора = 3 ?
- *
- * Новые значения { 80, 80, 400, 389.1 }
+ * Titan extruder 389.1
+ * BMG Dual Drive extruder 417.9
+ * 
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 320, 320, 1600, 389.1 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 320, 320, 1600, 417.9 }
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
@@ -1687,7 +1670,7 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR true
+#define INVERT_E0_DIR false
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
